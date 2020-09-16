@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html --out-dir dev",
-    "build": "parcel build src/index.html --public-url ./ --out-dir htdocs --no-source-maps",
-    "clean": "del-cli dev htdocs"
+    "build": "parcel build src/index.html --public-url ./ --out-dir docs --no-source-maps",
+    "clean": "del-cli dev docs"
   },
   "repository": {
     "type": "git",
