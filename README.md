@@ -1,8 +1,9 @@
 # TextAlive App API p5.js example
 
-TextAlive App API のサンプルコードで、 [p5.js](https://p5js.org/) を使った作例です。
+TextAlive App API のサンプルコードで、 [p5.js](https://p5js.org/) を使った作例です。CodePenにアクセスすると、Webブラウザ上でこのアプリケーションのソースコードを編集できます。
 
-デモページ: https://textalivejp.github.io/textalive-app-p5js/
+- デモページ: https://textalivejp.github.io/textalive-app-p5js/
+- CodePen: https://codepen.io/arcatdmz/pen/eYZXLbd
 
 TextAlive ホストと接続された状態をテストするには [TextAlive App Debugger](https://developer.textalive.jp/app/run/?ta_app_url=https%3A%2F%2Ftextalivejp.github.io%2Ftextalive-app-p5js%2F&ta_song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXSLhsjepelI) のページにアクセスしてください。
 
