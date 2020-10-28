@@ -7,7 +7,7 @@ const player = new Player({
     appAuthor: "TextAlive",
     appName: "p5.js example",
   },
-  mediaElement: "#media",
+  mediaElement: document.querySelector("#media"),
 });
 
 let init = false;
