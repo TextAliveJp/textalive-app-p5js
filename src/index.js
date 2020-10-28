@@ -20,9 +20,9 @@ player.addListener({
     }
   },
 
-  onTextLoad: (text) => {
+  onTextLoad: (body) => {
     // Webフォントを確実に読み込むためDOM要素に歌詞を貼り付ける
-    document.querySelector("#dummy").textContent = text;
+    document.querySelector("#dummy").textContent = body?.text;
   },
 
   onVideoReady: () => {
