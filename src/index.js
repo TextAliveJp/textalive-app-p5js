@@ -3,66 +3,28 @@ import { Player, Ease } from "textalive-app-api";
 
 // プレイヤーの初期化 / Initialize TextAlive Player
 const player = new Player({
-  app: {
-    appAuthor: "TextAlive",
-    appName: "p5.js example",
-  },
+  // トークンは https://developer.textalive.jp/profile で取得したものを使う
+  app: { token: "test" },
   mediaElement: document.querySelector("#media"),
 });
-
-let init = false;
 
 // リスナの登録 / Register listeners
 player.addListener({
   onAppReady: (app) => {
     if (!app.managed) {
-      // グリーンライツ・セレナーデ / Omoi feat. 初音ミク
-      // - 初音ミク「マジカルミライ 2018」テーマソング
-      // - 楽曲: http://www.youtube.com/watch?v=XSLhsjepelI
-      // - 歌詞: https://piapro.jp/t/61Y2
-      player.createFromSongUrl("http://www.youtube.com/watch?v=XSLhsjepelI", {
+      player.createFromSongUrl("https://piapro.jp/t/N--x/20210204215604", {
         video: {
-          // 音楽地図訂正履歴: https://songle.jp/songs/1249410/history
-          beatId: 3818919,
-          chordId: 1207328,
-          repetitiveSegmentId: 1942131,
-          // 歌詞タイミング訂正履歴: https://textalive.jp/lyrics/www.youtube.com%2Fwatch%3Fv%3DXSLhsjepelI
-          lyricId: 50145,
-          lyricDiffId: 3168
-        }
+          // 音楽地図訂正履歴: https://songle.jp/songs/2121403/history
+          beatId: 3953761,
+          repetitiveSegmentId: 2099586,
+          // 歌詞タイミング訂正履歴: https://textalive.jp/lyrics/piapro.jp%2Ft%2FN--x%2F20210204215604
+          lyricId: 52094,
+          lyricDiffId: 5171,
+        },
       });
-      
-      // ブレス・ユア・ブレス / 和田たけあき feat. 初音ミク
-      // - 初音ミク「マジカルミライ 2019」テーマソング
-      // - 楽曲: http://www.youtube.com/watch?v=a-Nf3QUFkOU
-      // - 歌詞: https://piapro.jp/t/Ytwu
-      // player.createFromSongUrl("http://www.youtube.com/watch?v=a-Nf3QUFkOU", {
-      //   video: {
-      //     // 音楽地図訂正履歴: https://songle.jp/songs/1688650/history
-      //     beatId: 3818481,
-      //     chordId: 1546157,
-      //     repetitiveSegmentId: 1942135,
-      //     // 歌詞タイミング訂正履歴: https://textalive.jp/lyrics/www.youtube.com%2Fwatch%3Fv=a-Nf3QUFkOU
-      //     lyricId: 50146,
-      //     lyricDiffId: 3143
-      //   }
-      // });
-      
-      // 愛されなくても君がいる / ピノキオピー feat. 初音ミク
-      // - 初音ミク「マジカルミライ 2020」テーマソング
-      // - 楽曲: http://www.youtube.com/watch?v=ygY2qObZv24
-      // - 歌詞: https://piapro.jp/t/PLR7
-      // player.createFromSongUrl("http://www.youtube.com/watch?v=ygY2qObZv24", {
-      //   video: {
-      //     // 音楽地図訂正履歴: https://songle.jp/songs/1977449/history
-      //     beatId: 3818852,
-      //     chordId: 1955797,
-      //     repetitiveSegmentId: 1942043,
-      //     // 歌詞タイミング訂正履歴: https://textalive.jp/lyrics/www.youtube.com%2Fwatch%3Fv=ygY2qObZv24
-      //     lyricId: 50150,
-      //     lyricDiffId: 3158
-      //   }
-      // });
+      document.querySelector("#control").className = "active";
+    } else {
+      document.querySelector("#control").className = "inactive";
     }
   },
 
@@ -80,13 +42,13 @@ player.addListener({
 
   onPlay: () => {
     document.querySelector("#message").className = "inactive";
-    if (!player.app.managed) {
-      document.querySelector("#control").className = "";
-    }
     console.log("player.onPlay");
   },
 
   onPause: () => {
+    if (!player.app.managed) {
+      document.querySelector("#message").className = "active";
+    }
     console.log("player.onPause");
   },
 
@@ -95,16 +57,18 @@ player.addListener({
   },
 
   onStop: () => {
-    if (!player.app.managed) {
-      document.querySelector("#control").className = "active";
-    }
     console.log("player.onStop");
   },
 });
 
-// 再生終了後に表示する巻き戻しボタン
-document.querySelector("#rewind").addEventListener("click", () => {
+// 再生ボタン
+document.querySelector("#play").addEventListener("click", () => {
   player.requestPlay();
+});
+
+// 停止ボタン
+document.querySelector("#stop").addEventListener("click", () => {
+  player.requestStop();
 });
 
 // p5.js を初期化

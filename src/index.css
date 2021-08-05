@@ -40,13 +40,20 @@ canvas {
   margin: auto;
 }
 
+#wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  z-index: 201;
+}
+
 #message {
   display: none;
 }
 
 #control {
   display: none;
-  z-index: 201;
 }
 
 #dummy {
@@ -56,6 +63,7 @@ canvas {
 .inactive {
   display: none !important;
 }
+
 .active {
   display: block !important;
 }
