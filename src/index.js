@@ -4,7 +4,7 @@ import { Player, Ease } from "textalive-app-api";
 // プレイヤーの初期化 / Initialize TextAlive Player
 const player = new Player({
   // トークンは https://developer.textalive.jp/profile で取得したものを使う
-  app: { token: "test" },
+  app: { token: "ZkFzIGUn8CuGxtOC" },
   mediaElement: document.querySelector("#media"),
 });
 
