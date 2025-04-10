@@ -12,14 +12,18 @@ const player = new Player({
 player.addListener({
   onAppReady: (app) => {
     if (!app.managed) {
-      player.createFromSongUrl("https://piapro.jp/t/N--x/20210204215604", {
+      // アリフレーション / 雨良 Amala
+      player.createFromSongUrl("https://piapro.jp/t/SuQO/20250127235813", {
         video: {
-          // 音楽地図訂正履歴: https://songle.jp/songs/2121403/history
-          beatId: 3953761,
-          repetitiveSegmentId: 2099586,
-          // 歌詞タイミング訂正履歴: https://textalive.jp/lyrics/piapro.jp%2Ft%2FN--x%2F20210204215604
-          lyricId: 52094,
-          lyricDiffId: 5171,
+          // 音楽地図訂正履歴
+          beatId: 4694276,
+          chordId: 2830731,
+          repetitiveSegmentId: 2946479,
+      
+          // 歌詞URL: https://piapro.jp/t/GbYz
+          // 歌詞タイミング訂正履歴: https://textalive.jp/lyrics/piapro.jp%2Ft%2FSuQO%2F20250127235813
+          lyricId: 67811,
+          lyricDiffId: 20655
         },
       });
       document.querySelector("#control").className = "active";
